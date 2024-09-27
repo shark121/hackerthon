@@ -7,7 +7,7 @@ const endpoint = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY
 
 // The image you want to analyze (base64 encoded)
 
-async function APIREQ({ image }: { image:string  }) {
+async function APIREQ({ image }: { image: Uint8Array  }) {
   const imageBase64 = image;
 
   // The request payload
@@ -54,7 +54,7 @@ export async function POST(
   const bytes = await imageFile.arrayBuffer();
   const buffer = Buffer.from(bytes);
   const bufferString =  buffer.toString()
-  await  APIREQ({image:bufferString})
+  await  APIREQ({image:buffer})
 
   return NextResponse.json({ response: "success_1" });
 }
