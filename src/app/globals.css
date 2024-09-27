@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+input {
+    appearance: none; /* Removes default styling in modern browsers */
+    -webkit-appearance: none; /* Removes default styling in WebKit browsers */
+    -moz-appearance: none; /* Removes default styling in Mozilla browsers */
+    border: none; /* Removes the default border */
+    outline: none; /* Removes the outline when the input is focused */
+    background: none; /* Removes the default background */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    font-family: inherit; /* Inherits the font family from the parent element */
+    font-size: inherit; /* Inherits the font size from the parent element */
+    color: inherit; /* Inherits the text color from the parent element */
+  }
+  

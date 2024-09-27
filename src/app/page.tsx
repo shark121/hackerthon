@@ -10,8 +10,9 @@ import { useState } from "react";
 const comfotaa = Comfortaa({
   subsets: ["latin"],
 });
+export default function HomePage() {
 
-export async function sedFileReq({
+async function sedFileReq({
   File,
 }: // collectionType,
 // nameID,
@@ -29,11 +30,12 @@ export async function sedFileReq({
     method: "POST",
     body: formData,
   })
-    .catch((err) => console.log("there a was an err ", err))
-    .then((response) => console.log(response, "resolved"));
+    .catch((err) => {console.log("there a was an err ", err)})
+    .then((response) => {
+      
+      console.log(response, "resolved")});
 }
 
-export default function HomePage() {
   const [fileState, setFileState] = useState<File | null>(null);
 
   const router = useRouter();
