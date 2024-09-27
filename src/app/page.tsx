@@ -1,101 +1,68 @@
+"use client"
+import { motion as m } from "framer-motion";
+// import logoNoBg from "../public/images/logo-no-background.png";
 import Image from "next/image";
+// import RightArrow from "@/public/images/right";
+import { Comfortaa } from "next/font/google";
+import TypewriterComponent from "typewriter-effect";
+import { useRouter } from "next/navigation";
+const comfotaa = Comfortaa({
+  subsets: ["latin"],
+});
 
-export default function Home() {
+export default function HomePage() {
+
+ const router = useRouter()
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <m.div
+      className={`flex flex-col w-screen h-screen justify-center items-center ${comfotaa.className}`}
+    >
+      <div className="flex justify-between box-border w-[85%] h-[3.8rem]  rounded-2xl m-4 shadow-xl px-4">
+        <div className="h-full w-[3rem] relative m-[3px]">
+          <Image fill src={""} className="object-contain"  alt=""/>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="  flex justify-around items-center w-[40%] h-full ">
+          <button 
+          onClick={()=>router.push("./login")}
+          className=" w-[7rem] h-[2.5rem] rounded-[2rem] border-[1.7px] border-purple-300 hover:scale-105 ease-in-out duration-200 delay-75 ">
+            {" "}
+            Login{" "}
+          </button>
+          <button 
+          onClick={()=>router.push("./try")}
+          className="relative w-[15rem] h-[2.5rem] rounded-[2rem] bg-purple-300 px-4 hover:scale-105 ease-in-out duration-200 delay-75">
+            <div className="absolute left-2 inset-t-5 bottom-1 w-[30px] h-[30px] rounded-full bg-white p-2 ">
+              {/* <RightArrow /> */}
+            </div>
+            <p className="">Try dhanny free</p>
+          </button>
+        </div>
+      </div>
+      <div className="h-[30rem] w-[45rem]  flex flex-col justify-around items-center p-4">
+        <div className="h-[20rem] w-[full] flex justify-center items-center flex-col text-[3rem] font-extrabold">
+          <div className="flex gap-4">
+            Meet <div className="text-purple-500">Dhanny</div>
+          </div>
+          <div>
+            <TypewriterComponent
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("Summarize any content.")
+                  .deleteAll()
+                  .pauseFor(200)
+                  .typeString("Anytime anywhere.").start()
+              }}
+            />
+          </div>
+          <div>Get creative</div>
+          <button 
+          onClick={()=>router.push('./createAccount')}
+          className="text-[1rem] text-white bg-purple-400 px-4 py-2 rounded-lg hover:scale-105 ease-in-out duration-200 delay-75">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </m.div>
   );
 }
