@@ -3,8 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { sedFileReq } from "../try/page";
 import { useRouter } from "next/router";
 // import sendfile from "@/app/"
+import {Alert} from "@/app/components/alert"
 
-export const CameraCapture = () => {
+ export const CameraCapture = () => {
   // const router = useRouter();
   // const [isR, setisR] = useState();
 

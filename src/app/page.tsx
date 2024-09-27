@@ -63,20 +63,20 @@ async function sedFileReq({
             <div className="absolute left-2 inset-t-5 bottom-1 w-[30px] h-[30px] rounded-full bg-white p-2 ">
               {/* <RightArrow /> */}
             </div>
-            <p className="">Try dhanny free</p>
+            <p className="">Analyse</p>
           </button>
         </div>
       </div>
       <div className="h-[30rem] w-[45rem]  flex flex-col justify-around items-center p-4">
         <div className="h-[20rem] w-[full] flex justify-center items-center flex-col text-[3rem] font-extrabold">
           <div className="flex gap-4">
-            Meet <div className="text-purple-500">Dhanny</div>
+            Photo<div className="text-purple-500">Analyser</div>
           </div>
           <div>
             <TypewriterComponent
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("Summarize any content.")
+                  .typeString("Analyse a photo.")
                   .deleteAll()
                   .pauseFor(200)
                   .typeString("Anytime anywhere.")
@@ -85,7 +85,7 @@ async function sedFileReq({
             />
           </div>
           <div>Get creative</div>
-          <input
+          {/* <input
             onChange={(e) => {
               e.target.files &&
                 e.target.files.length > 0 &&
@@ -101,7 +101,7 @@ async function sedFileReq({
           onClick={()=>fileState && sedFileReq({ File: fileState })}
           className="text-[1rem] text-white bg-purple-400 px-4 py-2 rounded-lg hover:scale-105 ease-in-out duration-200 delay-75">
             send
-          </button>
+          </button> */}
         </div>
       </div>
     </m.div>
