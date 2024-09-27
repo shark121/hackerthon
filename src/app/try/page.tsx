@@ -5,13 +5,12 @@ import Input from "next/image";
 import { useState } from "react";
 import Cameracapture from "@/app/utils/camera";
 
-
 const comfortaa = Comfortaa({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
 });
 
-async function sedFileReq({
+export async function sedFileReq({
   File,
 }: // collectionType,
 // nameID,
@@ -139,7 +138,7 @@ export default function Try() {
               onChange={async (e) => {
                 e.target.files &&
                   e.target.files.length > 0 &&
-                  setFileState(e.target.files[0]) 
+                  setFileState(e.target.files[0]);
                 // await  sedFileReq({ File);
                 console.log(e.target.files && e.target.files[0].name, "file");
               }}
@@ -147,7 +146,7 @@ export default function Try() {
             <div></div>
           </div>
           <button
-           onClick={()=>sedFileReq({File:fileState})}
+            onClick={() => sedFileReq({ File: fileState })}
             className="h-[3rem] w-[3rem] rounded-full p-[1px] bg-white relative"
           />
         </div>

@@ -1,7 +1,17 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { sedFileReq } from "../try/page";
+import { useRouter } from "next/router";
+// import sendfile from "@/app/"
 
 export const CameraCapture = () => {
+  // const router = useRouter();
+  // const [isR, setisR] = useState();
+
+  // useEffect(() => {
+  //   setisR(true);
+  // }, [router.isReady]);
+
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null);
@@ -19,19 +29,48 @@ export const CameraCapture = () => {
   };
 
   // Capture image from the video stream
-  const captureImage = () => {
+  const captureImage = async () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
+
     if (canvas && video) {
       const context = canvas.getContext("2d");
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-      // Save captured image
+      // Get the base64 image data
       const imageData = canvas.toDataURL("image/png");
       setCapturedImage(imageData);
-      console.log(imageData);
+
+      // Convert the base64 data to a Blob
+      const blob = await fetch(imageData).then((res) => res.blob());
+
+      // Create a File object if needed
+      const file = new File([blob], "captured_image.png", {
+        type: "image/png",
+      });
+
+      // Send the file to your API or use it
+      await sedFileReq({ File: file });
+      const captureImage = async () => {
+        const canvas = canvasRef.current;
+        const video = videoRef.current;
+        if (canvas && video) {
+          const context = canvas.getContext("2d");
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+          // Save captured image
+          const imageData = canvas.toDataURL("image/png");
+          setCapturedImage(imageData);
+
+          await sedFileReq({ File: imageData });
+          // console.log(imageData);
+        }
+      };
+      window.location.href = "/try";
     }
   };
 
